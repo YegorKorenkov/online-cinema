@@ -4,8 +4,11 @@ import { Provider } from 'react-redux';
 
 import Layout from '@/components/layout/Layout';
 
+import { TypeComponentAuthFields } from '@/shared/types/auth.types';
+
 import { store } from '@/store/store';
 
+import AuthProvider from './AuthProvider/AuthProvider';
 import HeadProvider from './HeadProvider/HeadProvider';
 import ReduxToast from './ReduxToast';
 
@@ -21,13 +24,18 @@ interface Props {
 	children: React.ReactNode;
 }
 
-const MainProvider: FC<Props> = ({ children }) => {
+const MainProvider: FC<Props & TypeComponentAuthFields> = ({
+	children,
+	Component,
+}) => {
 	return (
 		<HeadProvider>
 			<Provider store={store}>
 				<QueryClientProvider client={queryClient}>
 					<ReduxToast />
-					<Layout>{children}</Layout>
+					<AuthProvider Component={Component}>
+						<Layout>{children}</Layout>
+					</AuthProvider>
 				</QueryClientProvider>
 			</Provider>
 		</HeadProvider>

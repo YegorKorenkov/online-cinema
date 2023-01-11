@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, InputHTMLAttributes } from 'react';
-import { FieldError } from 'react-hook-form';
+import { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
 
 export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {}
 

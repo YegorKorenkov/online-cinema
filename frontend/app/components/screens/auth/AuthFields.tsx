@@ -23,7 +23,7 @@ const AuthFields: FC<IAuthFields> = ({
 					required: 'Email is required',
 					pattern: {
 						value: validEmail,
-						message: 'Please enter a valid email adress',
+						message: 'Please enter a valid email address',
 					},
 				})}
 				placeholder="E-mail"
